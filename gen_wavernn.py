@@ -66,6 +66,10 @@ def gen_from_file(model: WaveRNN, load_path: Path, save_path: Path, batched, tar
 
 
 if __name__ == "__main__":
+    """
+    usage:
+    python gen_wavernn.py --voc_weights pretrained/ljspeech.wavernn.mol.800k/latest_weights.pyt -f LJSpeech-1.1-mini/mels/LJ001-0001.npy
+    """
 
     parser = argparse.ArgumentParser(description='Generate WaveRNN Samples')
     parser.add_argument('--batched', '-b', dest='batched', action='store_true', help='Fast Batched Generation')
