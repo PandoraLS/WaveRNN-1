@@ -34,7 +34,7 @@ class Paths:
         self.create_paths()
 
     def create_paths(self):
-        os.makedirs(self.data, exist_ok=True)
+        os.makedirs(self.data, exist_ok=True) # exist_ok=True 如果已经存在文件夹 不报错
         os.makedirs(self.quant, exist_ok=True)
         os.makedirs(self.mel, exist_ok=True)
         os.makedirs(self.gta, exist_ok=True)

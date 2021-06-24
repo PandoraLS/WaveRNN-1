@@ -14,6 +14,9 @@ import argparse
 from utils import data_parallel_workaround
 from utils.checkpoints import save_checkpoint, restore_checkpoint
 
+"""
+训练wavernn 学习 mel谱 到 wave波形的映射关系
+"""
 
 def main():
 
@@ -103,6 +106,7 @@ def voc_train_loop(paths: Paths, model: WaveRNN, loss_func, optimizer, train_set
         running_loss = 0.
 
         for i, (x, y, m) in enumerate(train_set, 1):
+            # x: 量化的wav, m: mel谱, y: 生成的wav
             x, m, y = x.to(device), m.to(device), y.to(device)
 
             # Parallelize model onto GPUS using workaround due to python bug

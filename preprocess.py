@@ -12,7 +12,7 @@ from pathlib import Path
 
 
 """
-Usage:
+对音频文件预处理，将wav文件处理为mel谱或对其量化并保存到文件
 
 """
 
@@ -32,35 +32,44 @@ args = parser.parse_args()
 
 hp.configure(args.hp_file)  # Load hparams from file
 if args.path is None:
-    args.path = hp.wav_path
+    args.path = hp.wav_path # LJSpeech-1.1/ 文件夹路径
 
 extension = args.extension
 path = args.path
 
-
 def convert_file(path: Path):
+    """
+    将wav文件转换为mel(mel谱) 和 quant(量化)
+    Args:
+        path: wav文件路径
+    Returns: wav文件的梅尔谱 和 量化结果
+    """
     y = load_wav(path)
     peak = np.abs(y).max()
     if hp.peak_norm or peak > 1.0:
         y /= peak
     mel = melspectrogram(y)
-    if hp.voc_mode == 'RAW':
+    if hp.voc_mode == 'RAW': # raw mu-律
         quant = encode_mu_law(y, mu=2**hp.bits) if hp.mu_law else float_2_label(y, bits=hp.bits)
-    elif hp.voc_mode == 'MOL':
+    elif hp.voc_mode == 'MOL': # 常规的量化, 不进行mu-律变换 bits=16
         quant = float_2_label(y, bits=16)
-
     return mel.astype(np.float32), quant.astype(np.int64)
 
 
 def process_wav(path: Path):
-    wav_id = path.stem
+    """
+    处理wav文件，并将mel谱 和 量化后的值保存下来
+    Args:
+        path: wav文件路径
+    Returns: wav文件id 和 mel谱
+    """
+    wav_id = path.stem # 最后一个路径组件去除后缀 比如: LJ001.wav -> LJ001
     m, x = convert_file(path)
     np.save(paths.mel/f'{wav_id}.npy', m, allow_pickle=False)
     np.save(paths.quant/f'{wav_id}.npy', x, allow_pickle=False)
     return wav_id, m.shape[-1]
 
-
-wav_files = get_files(path, extension)
+wav_files = get_files(path, extension) # 获取path路径下所有.wav文件
 paths = Paths(hp.data_path, hp.voc_model_id, hp.tts_model_id)
 
 print(f'\n{len(wav_files)} {extension[1:]} files found in "{path}"\n')

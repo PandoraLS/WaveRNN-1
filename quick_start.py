@@ -10,7 +10,7 @@ import zipfile, os
 
 
 os.makedirs('quick_start/tts_weights/', exist_ok=True)
-os.makedirs('quick_start/voc_weights/', exist_ok=True)
+os.makedirs('quick_start/voc_weights/', exist_ok=True) # voc是vocoder的意思
 
 zip_ref = zipfile.ZipFile('pretrained/ljspeech.wavernn.mol.800k.zip', 'r')
 zip_ref.extractall('quick_start/voc_weights/')
