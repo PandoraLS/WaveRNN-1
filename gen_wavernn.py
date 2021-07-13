@@ -69,6 +69,7 @@ if __name__ == "__main__":
     """
     usage:
     python gen_wavernn.py --voc_weights pretrained/ljspeech.wavernn.mol.800k/latest_weights.pyt -f LJSpeech-1.1-mini/mels/LJ001-0001.npy
+    输出的文件在 model_outputs/ljspeech_mol.wavernn/ 中
     """
 
     parser = argparse.ArgumentParser(description='Generate WaveRNN Samples')

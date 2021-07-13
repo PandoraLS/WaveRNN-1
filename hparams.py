@@ -2,8 +2,10 @@
 # CONFIG -----------------------------------------------------------------------------------------------------------#
 
 # Here are the input and output data paths (Note: you can override wav_path in preprocess.py)
-wav_path = '/home/lizhen/ll_workspace/datasets/LJSpeech-1.1' #'/path/to/wav_files/'  LJSpeech-1.1/文件夹路径
-data_path = '/home/lizhen/ll_workspace/datasets/fatchord_wavernn_LJ_output' # 'data/' 处理后数据的文件夹
+# wav_path = '/home/lizhen/ll_workspace/datasets/LJSpeech-1.1' #'/path/to/wav_files/'  LJSpeech-1.1/文件夹路径
+# data_path = '/home/lizhen/ll_workspace/datasets/fatchord_wavernn_LJ_output' # 'data/' 处理后数据的文件夹
+wav_path = '/home/lizhen/ll_workspace/datasets/CHINESE_MANDARIN' #'/path/to/wav_files/'  LJSpeech-1.1/文件夹路径
+data_path = '/home/lizhen/ll_workspace/datasets/fatchord_wavernn_CHINESE_MANDARIN_output' # 'data/' 处理后数据的文件夹
 
 # model ids are separate - that way you can use a new tts with an old wavernn and vice versa
 # NB: expect undefined behaviour if models were trained on different DSP settings

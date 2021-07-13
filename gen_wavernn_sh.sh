@@ -1,0 +1,14 @@
+python gen_wavernn.py --voc_weights pretrained/ljspeech.wavernn.mol.800k/latest_weights.pyt -f CHINESE_MANDARIN/mels/Ch_f3.npy
+python gen_wavernn.py --voc_weights pretrained/ljspeech.wavernn.mol.800k/latest_weights.pyt -f CHINESE_MANDARIN/mels/Ch_f4.npy
+python gen_wavernn.py --voc_weights pretrained/ljspeech.wavernn.mol.800k/latest_weights.pyt -f CHINESE_MANDARIN/mels/Ch_f5.npy
+python gen_wavernn.py --voc_weights pretrained/ljspeech.wavernn.mol.800k/latest_weights.pyt -f CHINESE_MANDARIN/mels/Ch_f6.npy
+python gen_wavernn.py --voc_weights pretrained/ljspeech.wavernn.mol.800k/latest_weights.pyt -f CHINESE_MANDARIN/mels/Ch_f7.npy
+python gen_wavernn.py --voc_weights pretrained/ljspeech.wavernn.mol.800k/latest_weights.pyt -f CHINESE_MANDARIN/mels/Ch_f8.npy
+python gen_wavernn.py --voc_weights pretrained/ljspeech.wavernn.mol.800k/latest_weights.pyt -f CHINESE_MANDARIN/mels/Ch_m1.npy
+python gen_wavernn.py --voc_weights pretrained/ljspeech.wavernn.mol.800k/latest_weights.pyt -f CHINESE_MANDARIN/mels/Ch_m2.npy
+python gen_wavernn.py --voc_weights pretrained/ljspeech.wavernn.mol.800k/latest_weights.pyt -f CHINESE_MANDARIN/mels/Ch_m3.npy
+python gen_wavernn.py --voc_weights pretrained/ljspeech.wavernn.mol.800k/latest_weights.pyt -f CHINESE_MANDARIN/mels/Ch_m4.npy
+python gen_wavernn.py --voc_weights pretrained/ljspeech.wavernn.mol.800k/latest_weights.pyt -f CHINESE_MANDARIN/mels/Ch_m5.npy
+python gen_wavernn.py --voc_weights pretrained/ljspeech.wavernn.mol.800k/latest_weights.pyt -f CHINESE_MANDARIN/mels/Ch_m6.npy
+python gen_wavernn.py --voc_weights pretrained/ljspeech.wavernn.mol.800k/latest_weights.pyt -f CHINESE_MANDARIN/mels/Ch_m7.npy
+python gen_wavernn.py --voc_weights pretrained/ljspeech.wavernn.mol.800k/latest_weights.pyt -f CHINESE_MANDARIN/mels/Ch_m8.npy
