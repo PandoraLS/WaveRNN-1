@@ -12,7 +12,16 @@ from pathlib import Path
 
 """
 对音频文件预处理，将wav文件处理为mel谱或对其量化并保存到文件
-
+usage:
+    python preprocess.py
+Note:
+    需要提前在 hparams.py 中设置 wav_path和 采样率, Hop_length, win_length 等参数
+    
++-------------+-----------+--------+------------+-----------+
+| Sample Rate | Bit Depth | Mu Law | Hop Length | CPU Usage |
++-------------+-----------+--------+------------+-----------+
+|    16000    |     9     |  True  |    200     |   19/20   |
++-------------+-----------+--------+------------+-----------+
 """
 
 # Helper functions for argument types
@@ -50,7 +59,7 @@ def convert_file(path: Path):
     mel = melspectrogram(y)
     if hp.voc_mode == 'RAW': # raw mu-律
         quant = encode_mu_law(y, mu=2**hp.bits) if hp.mu_law else float_2_label(y, bits=hp.bits)
-    elif hp.voc_mode == 'MOL': # 常规的量化, 不进行mu-律变换 bits=16
+    elif hp.voc_mode == 'MOL': # bits=16
         quant = float_2_label(y, bits=16)
     return mel.astype(np.float32), quant.astype(np.int64)
 
@@ -79,11 +88,8 @@ if len(wav_files) == 0:
     print('or use the --path option.\n')
 
 else:
-
     if not hp.ignore_tts:
-
         text_dict = ljspeech(path)
-
         with open(paths.data/'text_dict.pkl', 'wb') as f:
             pickle.dump(text_dict, f)
 
