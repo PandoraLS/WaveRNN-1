@@ -48,3 +48,5 @@ pip-delete-this-directory.txt
 .ipynb_checkpoints
 
 /pretrained/ljspeech.wavernn.mol.800k/
+model_outputs/
+data/

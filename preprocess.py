@@ -13,7 +13,9 @@ from pathlib import Path
 
 """
 对音频文件预处理，将wav文件处理为mel谱或对其量化并保存到文件
-
+usage:
+    python preprocess.py --path /Users/lisen/workspace/datasets/LJSpeech-1.1
+Note: 注意设置hparams.py中wav_path和data_path的位置，如果不设置，那么会在代码跟目录新建一个文件夹 data/ ，生成的mel文件都会放到data/文件夹中,本地调试最好生成到其他地方
 """
 
 # Helper functions for argument types
