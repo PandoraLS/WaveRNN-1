@@ -15,15 +15,15 @@ ignore_tts = False
 
 
 # DSP --------------------------------------------------------------------------------------------------------------#
-
+# DSP 参考 notebooks/ 中的一些配置
 # Settings for all models
-sample_rate = 22050
+sample_rate = 16000 # 22050
 n_fft = 2048
 fft_bins = n_fft // 2 + 1
 num_mels = 80
-hop_length = 275                    # 12.5ms - in line with Tacotron 2 paper
-win_length = 1100                   # 50ms - same reason as above
-fmin = 40
+hop_length = 200                    # 12.5ms - in line with Tacotron 2 paper
+win_length = 800                    # 50ms - same reason as above
+fmin = 40                           # lowest frequency (in Hz) librosa产生mel时会用到
 min_level_db = -100
 ref_level_db = 20
 bits = 9                            # bit depth of signal

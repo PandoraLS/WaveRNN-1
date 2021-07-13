@@ -20,8 +20,9 @@ def load_wav(path):
 
 
 def save_wav(x, path):
-    librosa.output.write_wav(path, x.astype(np.float32), sr=hp.sample_rate)
-
+    if x.dtype != 'int16':
+        x = encode_16bits(x)
+    librosa.output.write_wav(path, x.astype(np.int16), sr=hp.sample_rate)
 
 def split_signal(x):
     unsigned = x + 2**15
